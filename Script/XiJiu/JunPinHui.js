@@ -5,7 +5,7 @@
 const $ = new Env('君品荟');
 const JunPinHui = ($.isNode() ? process.env.JunPinHui : $.getdata("JunPinHui")) || '';
 let appkey = 'OzVFDV3c6omb';
-let actId = '20240701738';
+let actId = '20240801893';
 let Utils = undefined;
 let token = '';
 let notice = '';
