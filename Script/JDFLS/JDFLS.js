@@ -5,7 +5,7 @@
 const $ = new Env('健达福利社');
 let JDFLS = ($.isNode() ? JSON.parse(process.env.JDFLS) : $.getjson("JDFLS")) || [];
 let activityId = '230309eSgKaUHr2t'
-let lotteryId = '000000006599913affffffff820c7ffd'
+let lotteryId = 'ffffffff90617c32000000002d97817f'
 let token=''
 let projectId = ''
 let notice = ''
