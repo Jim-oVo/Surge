@@ -35,7 +35,7 @@ async function main() {
                 await sendMsg(`用户：${id}\ntoken已过期，请重新获取`);
                 continue
             }
-          let login=  await commonPost('/User/DecryptPhoneNumber',item.body)
+          let login=  await commonPost('/User/DecryptPhoneNumber',JSON.parse(item.body))
             if (login.Code == 401) {
                 await sendMsg(`用户：${id}\ntoken已过期，请重新获取`);
                 continue
@@ -194,7 +194,6 @@ function extracted(id, token, refreshToken) {
 
 async function getCookie() {
     const requestBody = $request.body;
-    console.log($request)
     if (!requestBody) {
         return
     }
