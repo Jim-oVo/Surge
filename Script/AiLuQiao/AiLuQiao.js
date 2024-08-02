@@ -66,6 +66,7 @@ async function main() {
                 }
             }
             await $.wait(10000)
+            redActivity = await commonGet(`/red_activity?tid=${tid}&uid=${uid}`);
             let luckChance = await commonGet(`/luck_chance_get?uid=${uid}&tid=${tid}`)
             console.log(`剩余抽奖次数：${luckChance.chance}`)
             for (let i = 0; i < luckChance.chance; i++) {
