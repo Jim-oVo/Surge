@@ -27,6 +27,10 @@ async function main() {
         console.log(`用户：${id}开始任务`)
         console.log('获取cardNumber')
         let getCardNumber = await jinlingPost('/app/member/v1/getMemberBasic',{"telephone":id,"getType":""})
+        if (!getCardNumber.success) {
+            console.log(getCardNumber.message)
+            continue
+        }
         cardNumber = getCardNumber.data.cardInfo.cardNumber;
         console.log(cardNumber)
         point = getCardNumber.data.walletInfo.pointTotal;
