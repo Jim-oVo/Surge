@@ -65,6 +65,7 @@
 | 大潮 | [DaChao](https://github.com/xzxxn777/Surge/blob/main/Script/DaChao/DaChao.js) | ✅(2024/07/26) | ✅️ |
 | 江苏有线-巴黎奥运会 | [JSYX](https://github.com/xzxxn777/Surge/blob/main/Script/JSYX/JSYX.js) | ✅(2024/07/26) | ✅️ |
 | 伊利-摇一摇 | [YiLi](https://github.com/xzxxn777/Surge/blob/main/Script/YiLi/YiLi.js) | ✅(2024/07/30) | ✅️ |
+| 爱路桥 | [AiLuQiao](https://github.com/xzxxn777/Surge/blob/main/Script/AiLuQiao/AiLuQiao.js) | ✅(2024/08/02) | ✅️ |
 
 ------
 ### [一键订阅boxjs](http://boxjs.com/#/sub/add/https://raw.githubusercontent.com/xzxxn777/Surge/main/xzxxn.json)
