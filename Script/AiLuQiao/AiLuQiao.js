@@ -1,5 +1,5 @@
 /**
- * cron "1 8,16 * * *" AiLuQiao.js
+ * cron "1,10 8,16 * * *" AiLuQiao.js
  * export AiLuQiao='uid1 uid2'
  */
 const $ = new Env('爱路桥');
@@ -9,6 +9,7 @@ let uid=''
 let tid = ''
 let cid = ''
 let notice = ''
+let lotteryNotice = ''
 !(async () => {
     await main();
 })().catch((e) => {$.log(e)}).finally(() => {$.done({});});
@@ -65,15 +66,15 @@ async function main() {
                     }
                 }
             }
-            await $.wait(10000)
-            redActivity = await commonGet(`/red_activity?tid=${tid}&uid=${uid}`);
             let luckChance = await commonGet(`/luck_chance_get?uid=${uid}&tid=${tid}`)
             console.log(`剩余抽奖次数：${luckChance.chance}`)
             for (let i = 0; i < luckChance.chance; i++) {
                 let luck = await commonGet(`/red_luck?uid=${uid}&tid=${tid}`)
                 if (luck.status == 1) {
                     console.log(`抽奖获得：${luck.data.prize}`)
-                    await sendMsg(`用户：${uid} 抽奖获得：${luck.data.prize}`)
+                    if (luck.data.prize != '谢谢参与') {
+                        lotteryNotice += `用户：${uid} 抽奖获得：${luck.data.prize}\n`
+                    }
                 } else {
                     console.log(luck.msg)
                 }
@@ -155,6 +156,9 @@ async function main() {
     }
     if (notice) {
         await sendMsg(notice);
+    }
+    if (lotteryNotice) {
+        await sendMsg(lotteryNotice);
     }
 }
 

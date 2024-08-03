@@ -10,6 +10,7 @@ let Utils = undefined;
 window = {};
 let signature_key = ''
 let notice = ''
+let lotteryNotice = ''
 let sessionId = ''
 let tenantId = '94'
 let accountId = ''
@@ -135,12 +136,15 @@ async function main() {
         for (let prize of prizeInfo.data) {
             if (prize.prize_type == 3 && prize.status != 2) {
                 console.log(`奖品：${prize.prize_content} code：${prize.prize_info.code}`)
+                lotteryNotice += `用户：${phone_number} 微信领取链接：https://m.aihoge.com/lottery/rotor/drawRedPacket?CHECK_CODE=${prize.prize_info.code}\n`
             }
         }
-        console.log('微信打开链接：https://m.aihoge.com/lottery/awardBonus/drawRedPacket?title=领取红包\n输入code兑换红包')
     }
     if (notice) {
         await sendMsg(notice);
+    }
+    if (lotteryNotice) {
+        await sendMsg(lotteryNotice);
     }
 }
 
